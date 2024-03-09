@@ -1,10 +1,47 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Sorting {
   public static void main(String[] args) {
     int[] arr = { 1, 3, 5, 4, 2 };
-    selectionSort(arr);
+    mergesort(arr, 0, arr.length - 1);
     System.out.println(Arrays.toString(arr));
+  }
+
+  static void mergesort(int[] arr, int l, int h) {
+    if (l >= h) {
+      return;
+    }
+    int mid = l + (h - l) / 2;
+    mergesort(arr, l, mid);
+    mergesort(arr, mid + 1, h);
+    merge(arr, l, mid, h);
+  }
+
+  static void merge(int[] arr, int l, int mid, int h) {
+    ArrayList<Integer> temp = new ArrayList<>();
+    int right = mid + 1;
+    int left = l;
+    while (left <= mid && right <= h) {
+      if (arr[left] <= arr[right]) {
+        temp.add(arr[left]);
+        left++;
+      } else {
+        temp.add(arr[right]);
+        right++;
+      }
+    }
+    while (left <= mid) {
+      temp.add(arr[left]);
+      left++;
+    }
+    while (right <= h) {
+      temp.add(arr[right]);
+      right++;
+    }
+    for (int i = l; i <= h; i++) {
+      arr[i] = temp.get(i - l);
+    }
   }
 
   static void selectionSort(int[] arr) {
