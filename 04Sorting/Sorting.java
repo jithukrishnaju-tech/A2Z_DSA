@@ -4,8 +4,36 @@ import java.util.Arrays;
 public class Sorting {
   public static void main(String[] args) {
     int[] arr = { 1, 3, 5, 4, 2 };
-    mergesort(arr, 0, arr.length - 1);
+    quicksort(arr, 0, arr.length - 1);
     System.out.println(Arrays.toString(arr));
+  }
+
+  static void quicksort(int[] arr, int l, int h) {
+    if (l < h) {
+      int pivot = getpivot(arr, l, h);
+      quicksort(arr, l, pivot - 1);
+      quicksort(arr, pivot + 1, h);
+
+    }
+  }
+
+  static int getpivot(int[] arr, int l, int h) {
+    int i = l;
+    int j = h;
+    int pivot = arr[i];
+    while (i < j) {
+      while (arr[i] <= pivot && i <= h - 1) {
+        i++;
+      }
+      while (arr[j] > pivot && j >= l + 1) {
+        j--;
+      }
+      if (i < j) {
+        swap(i, j, arr);
+      }
+    }
+    swap(l, j, arr);
+    return j;
   }
 
   static void mergesort(int[] arr, int l, int h) {
