@@ -4,8 +4,25 @@ import java.util.Arrays;
 public class Sorting {
   public static void main(String[] args) {
     int[] arr = { 1, 3, 5, 4, 2 };
-    quicksort(arr, 0, arr.length - 1);
+    bubbleRecursion(arr, arr.length);
     System.out.println(Arrays.toString(arr));
+  }
+
+  static void bubbleRecursion(int[] arr, int n) {
+    if (n == 0) {
+      return;
+    }
+    int count = 0;
+    for (int i = 0; i < n - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        swap(i, i + 1, arr);
+        count++;
+      }
+    }
+    if (count == 0) {
+      return;
+    }
+    bubbleRecursion(arr, n - 1);
   }
 
   static void quicksort(int[] arr, int l, int h) {
