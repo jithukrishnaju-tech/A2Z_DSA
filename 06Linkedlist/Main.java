@@ -12,6 +12,7 @@ public class Main {
     int[] arr = { 2, 4, 6, 8 };
     lin.arraytoLinkedlist(arr);
     lin.display();
+    System.out.println("Sui");
     int len = lin.lengthofLL();
     boolean isExists = lin.isThereinLL(1);
     System.out.println(isExists);
