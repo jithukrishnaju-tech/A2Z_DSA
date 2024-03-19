@@ -46,6 +46,19 @@ public class DLL {
     temp.back = null;
   }
 
+  public int reverLLOptimised() {
+
+    Node prev = null;
+    Node currant = head;
+    while (currant != null) {
+      prev = currant.back;
+      currant.back = currant.next;
+      currant.next = prev;
+      currant = currant.back;
+    }
+    return prev.back.val;
+  }
+
   public void arraytodll(int[] arr) {
     head = new Node(arr[0]);
     Node prev = head;
