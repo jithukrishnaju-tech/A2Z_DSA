@@ -10,12 +10,18 @@ public class Main {
     // lin.insertLast(1);
     // lin.display();
     int[] arr = { 2, 4, 6, 8 };
-    lin.arraytoLinkedlist(arr);
-    lin.display();
-    System.out.println("Sui");
-    int len = lin.lengthofLL();
-    boolean isExists = lin.isThereinLL(1);
-    System.out.println(isExists);
-
+    // lin.arraytoLinkedlist(arr);
+    // lin.display();
+    // System.out.println("Sui");
+    // int len = lin.lengthofLL();
+    // boolean isExists = lin.isThereinLL(1);
+    // System.out.println(isExists);
+    DLL dll = new DLL();
+    dll.arraytodll(arr);
+    // dll.display();
+    dll.display();
+    System.out.println("END");
+    dll.deleteatk(2);
+    dll.display();
   }
 }
